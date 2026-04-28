@@ -1,16 +1,18 @@
-name: Update Master ICS
+name: Real-Time Holiday Sync
 
 on:
+  schedule:
+    - cron: "0 0 * * *" # Runs every day at midnight UTC
   push:
     branches:
       - master
     paths:
       - "ics/20*.ics"
-      - "converters/merge_ics.py"
+      - "converters/**"
   workflow_dispatch:
 
 jobs:
-  merge-ics:
+  sync-and-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -21,12 +23,45 @@ jobs:
         with:
           python-version: "3.10"
 
-      - name: Run merge script
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r requirements-gh.txt
+
+      - name: Sync from Official Sources
+        run: python converters/sync_holidays.py
+
+      - name: Generate ICS files from JSON
+        run: |
+          # Use a simple python snippet to generate ICS from updated JSON
+          python3 -c '
+          import json, os
+          for year in range(2021, 2030):
+              json_path = f"json/{year}.json"
+              if os.path.exists(json_path):
+                  with open(json_path) as f: holidays = json.load(f)
+                  content = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Mommy//SL Holidays Master//EN", "METHOD:PUBLISH"]
+                  for h in holidays:
+                      content.extend(["BEGIN:VEVENT", f"UID:{h[\"uid\"]}@mommy.internal", f"DTSTART;VALUE=DATE:{h[\"start\"].replace(\"-\", \"\")}", f"DTEND;VALUE=DATE:{h[\"end\"].replace(\"-\", \"\")}", f"SUMMARY:{h[\"summary\"]}", "STATUS:CONFIRMED", "BEGIN:VALARM", "ACTION:AUDIO", "TRIGGER:-PT15H", "END:VALARM", "END:VEVENT"])
+                  content.append("END:VCALENDAR")
+                  with open(f"ics/{year}.ics", "w") as f: f.write("\n".join(content))
+          '
+
+      - name: Run CSV/XML Converters
+        run: |
+          for year in {2021..2029}; do
+            if [ -f "ics/$year.ics" ]; then
+              python converters/icalendar_to_csv.py ics/$year.ics
+              python converters/icalendar_to_xml.py ics/$year.ics
+            fi
+          done
+
+      - name: Merge Master ICS
         run: python converters/merge_ics.py
 
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ics/srilanka-holidays.ics
-          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated update of master ICS file" && git push)
+          git add .
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Real-time sync: Updated holiday data from official sources" && git push)
