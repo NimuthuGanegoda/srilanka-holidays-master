@@ -1,0 +1,32 @@
+name: Update Master ICS
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "ics/20*.ics"
+      - "converters/merge_ics.py"
+  workflow_dispatch:
+
+jobs:
+  merge-ics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Run merge script
+        run: python converters/merge_ics.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add ics/srilanka-holidays.ics
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Automated update of master ICS file" && git push)
