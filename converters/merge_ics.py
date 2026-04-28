@@ -14,8 +14,9 @@ def merge_all_ics():
         "PRODID:-//Mommy//SL Holidays Master//EN",
         "CALSCALE:GREGORIAN",
         "METHOD:PUBLISH",
-        "X-WR-CALNAME:Sri Lanka Master Calendar (2021-2027)",
-        "X-WR-TIMEZONE:Asia/Colombo"
+        "X-WR-CALNAME:Sri Lanka Holidays Master",
+        "X-WR-TIMEZONE:Asia/Colombo",
+        "X-WR-CALDESC:Official Sri Lankan Public, Bank, and Mercantile Holidays (2021-2028). Upgraded with markers (*†‡) and alarms."
     ]
     
     for filename in files:
