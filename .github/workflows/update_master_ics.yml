@@ -31,6 +31,9 @@ jobs:
       - name: Sync from Official Sources
         run: python converters/sync_holidays.py
 
+      - name: Generate Rahu Kalaya
+        run: python converters/generate_rahu_kalaya.py
+
       - name: Generate ICS files from JSON
         run: |
           # Use a simple python snippet to generate ICS from updated JSON
