@@ -66,6 +66,17 @@ Datasets are available in the `data/holidays/` directory in JSON, CSV, and XML f
 
 ---
 
+## 🏛️ **Integrated Master Collection**
+
+This project is a high-integrity consolidation of multiple specialized repositories. By integrating these diverse sources, we provide a **unified master collection** that offers the most comprehensive and feature-rich holiday dataset available for Sri Lanka.
+
+Integrated projects include:
+*   **API Framework & Core Data**: Providing the foundational structure and verified historical records.
+*   **Calendar Enhancement Collection**: Inspired the inclusion of rich visual markers and enterprise-grade alarm features.
+*   **Extended Master Datasets**: Contributing to the comprehensive 2021-2028 coverage and multi-format distribution logic.
+
+---
+
 ## 🛡️ **Data Integrity**
 
 Every holiday entry is manually cross-referenced with the **Official Government Gazette** of Sri Lanka. We prioritize data accuracy over automated heuristics to ensure 100% reliability for production environments.
