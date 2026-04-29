@@ -1,18 +1,18 @@
 
-# 🇱🇰 Sri Lanka Holidays - API & Master Data
+# 🇱🇰 Sri Lanka Holidays - Master Data Collection
 
 <div align="center">
 
 ![License](https://img.shields.io/github/license/NimuthuGanegoda/srilanka-holidays-master?style=for-the-badge&color=blue)
-![Last Commit](https://img.shields.io/github/last-commit/NimuthuGanegoda/srilanka-holidays-master?style=for-the-badge&color=green)
-![API Status](https://img.shields.io/uptimerobot/status/m801863984-21c7b9399c6e347151e59c53?style=for-the-badge&label=API%20STATUS)
+![Last Commit](https://img.stellar.io/github/last-commit/NimuthuGanegoda/srilanka-holidays-master?style=for-the-badge&color=green)
+![Data Integrity](https://img.shields.io/badge/Data-Verified-success?style=for-the-badge)
 
 ---
 
-### 🚀 **High-Performance API & Validated Holiday Datasets**
-*Providing a standardized, enterprise-ready source for Sri Lankan holiday data.*
+### 📅 **Validated Sri Lankan Holiday Datasets**
+*Providing a standardized, enterprise-ready collection of holiday data (2021-2028).*
 
-[Explore Documentation](https://srilanka-holidays.vercel.app/docs) • [Request API Key](https://srilanka-holidays.vercel.app) • [Download Data](data/holidays/)
+[Download Master Calendar](data/holidays/ics/srilanka-holidays.ics) • [View Datasets](data/holidays/)
 
 </div>
 
@@ -20,7 +20,7 @@
 
 ## 📖 **Description**
 
-An open-source ecosystem delivering high-accuracy Sri Lankan holiday data. This repository serves as the **unified master source**, offering validated datasets in multiple formats optimized for enterprise integration and individual scheduling.
+An open-source ecosystem delivering high-accuracy Sri Lankan holiday data. This repository serves as the **unified master source**, offering validated datasets in multiple formats optimized for calendar integration and data analysis.
 
 ---
 
@@ -30,13 +30,13 @@ An open-source ecosystem delivering high-accuracy Sri Lankan holiday data. This 
 *   🏷️ **Visual Markers**: Instant identification via standard indicators: `*` (Public), `†` (Bank), and `‡` (Mercantile).
 *   🍎 **Apple & Google Ready**: Strict **CRLF** compliance and **VTIMEZONE** support for flawless calendar sync.
 *   🔔 **Smart Alarms**: Integrated `VALARM` notifications at 09:00 AM on the day preceding each holiday.
-*   🔄 **CI/CD Automation**: Real-time synchronization and multi-format conversion (JSON, CSV, XML, ICS).
+*   🔄 **CI/CD Automation**: Real-time synchronization and multi-format distribution (JSON, CSV, XML, ICS).
 
 ---
 
 ## 📂 **Project Structure**
 
-A clean, modular architecture designed for scalability and maintainability:
+A clean, modular architecture designed for high-integrity data management:
 
 ```bash
 .
@@ -46,29 +46,23 @@ A clean, modular architecture designed for scalability and maintainability:
 │       ├── json/          # 🏗️ Structured JSON for developers
 │       ├── csv/           # 📑 Spreadsheet-ready formats
 │       └── xml/           # 🧬 Legacy integration support
-├── 📁 src/                # 💻 Core application source code
-│   ├── api/               # 🌐 FastAPI implementation
+├── 📁 src/                # 💻 Core processing source code
 │   └── converters/        # 🛠️ Data processing & sync scripts
 ├── 📁 requirements/       # 📋 Dependency management
-│   ├── base.txt           # 📦 Core production dependencies
+│   ├── base.txt           # 📦 Core processing dependencies
 │   └── github.txt         # 🤖 CI/CD specific requirements
-└── 📁 public/             # 🎨 API frontend & static assets
+└── 📁 public/             # 🎨 Project assets & documentation
 ```
 
 ---
 
-## 🛠️ **Developer Integration**
+## 🛠️ **Data Usage**
 
-### **Public API Usage**
-```bash
-# Get holidays for a specific year
-curl -H "X-API-Key: your-key" "https://srilanka-holidays.vercel.app/api/v1/holidays?year=2025"
-```
+### **Calendar Subscription**
+To subscribe to the master calendar in Apple or Google Calendar, use the direct raw URL of the `srilanka-holidays.ics` file.
 
-### **Local Setup**
-1.  **Clone**: `git clone https://github.com/NimuthuGanegoda/srilanka-holidays-master.git`
-2.  **Install**: `pip install -r requirements/base.txt`
-3.  **Run**: `fastapi dev src/api/app.py`
+### **Developer Integration**
+Datasets are available in the `data/holidays/` directory in JSON, CSV, and XML formats for programmatic consumption.
 
 ---
 
