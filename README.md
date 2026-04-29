@@ -12,7 +12,7 @@
 ### 📅 **Validated Sri Lankan Holiday Datasets**
 *Providing a standardized, enterprise-ready collection of holiday data (2021-2028).*
 
-[Download Master Calendar](data/holidays/ics/srilanka-holidays.ics) • [View Datasets](data/holidays/)
+[🚀 **Subscribe to Master Calendar**](https://raw.githubusercontent.com/NimuthuGanegoda/srilanka-holidays-master/master/data/holidays/ics/srilanka-holidays.ics) • [📂 **View All Datasets**](data/holidays/)
 
 </div>
 
@@ -21,6 +21,17 @@
 ## 📖 **Description**
 
 An open-source ecosystem delivering high-accuracy Sri Lankan holiday data. This repository serves as the **unified master source**, offering validated datasets in multiple formats optimized for calendar integration and data analysis.
+
+---
+
+## ⚡ **Quick Subscription (Apple/Google/Outlook)**
+
+For the most secure and reliable experience, use the direct HTTPS raw link below for your calendar subscription:
+
+**Master Calendar Link (2021-2028):**  
+`https://raw.githubusercontent.com/NimuthuGanegoda/srilanka-holidays-master/master/data/holidays/ics/srilanka-holidays.ics`
+
+> 💡 **Note**: Always use the **HTTPS** `raw.githubusercontent.com` link to avoid insecure connection warnings and ensuring the direct `.ics` file is delivered to your application.
 
 ---
 
